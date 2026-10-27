@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --apple-bg: #f5f5f7;
+    --apple-card: #ffffff;
+    --apple-card-solid: #ffffff;
+    --apple-kpi-bg: #ffffff;
+    --apple-well: rgba(118, 118, 128, 0.08);
+    --apple-well-hover: rgba(118, 118, 128, 0.13);
+    --apple-canvas: #fafafc;
+    --apple-border: #e4e4e9;
+    --apple-border-strong: #d4d4da;
+    --apple-text: #1d1d1f;
+    --apple-text-secondary: #6e6e73;
+    --apple-text-tertiary: #86868b;
+    --apple-blue: #0071e3;
+    --apple-blue-hover: #0077ed;
+    --apple-blue-tint: rgba(0, 113, 227, 0.08);
+    --apple-amber: #c96e00;
+    --apple-amber-badge: rgba(255, 149, 0, 0.16);
+    --apple-amber-tint: rgba(255, 149, 0, 0.055);
+    --apple-red: #d70015;
+    --apple-red-badge: rgba(255, 59, 48, 0.15);
+    --apple-red-tint: rgba(255, 59, 48, 0.06);
+    --apple-green: #28cd41;
+    --apple-shadow: 0 4px 24px rgba(0, 0, 0, 0.045), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --apple-segmented-bg: rgba(118, 118, 128, 0.12);
+    --apple-segmented-active: #ffffff;
+    --apple-segmented-shadow: 0 3px 8px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.04);
+    color-scheme: light;
+  }
+
+  .dark {
+    --apple-bg: #0a0a0c;
+    --apple-card: #1c1c1e;
+    --apple-card-solid: #1c1c1e;
+    --apple-kpi-bg: #222226;
+    --apple-well: rgba(118, 118, 128, 0.18);
+    --apple-well-hover: rgba(118, 118, 128, 0.26);
+    --apple-canvas: #131315;
+    --apple-border: #2c2c2f;
+    --apple-border-strong: #3a3a3f;
+    --apple-text: #f5f5f7;
+    --apple-text-secondary: #98989d;
+    --apple-text-tertiary: #636366;
+    --apple-blue: #0a84ff;
+    --apple-blue-hover: #409cff;
+    --apple-blue-tint: rgba(10, 132, 255, 0.14);
+    --apple-amber: #ff9f0a;
+    --apple-amber-badge: rgba(255, 159, 10, 0.2);
+    --apple-amber-tint: rgba(255, 159, 10, 0.07);
+    --apple-red: #ff453a;
+    --apple-red-badge: rgba(255, 69, 58, 0.2);
+    --apple-red-tint: rgba(255, 69, 58, 0.08);
+    --apple-green: #30d158;
+    --apple-shadow: 0 14px 36px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --apple-segmented-bg: rgba(118, 118, 128, 0.24);
+    --apple-segmented-active: #3a3a3c;
+    --apple-segmented-shadow: 0 3px 8px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.2);
+    color-scheme: dark;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      font-size: clamp(17px, 1.02vw, 23px);
+    }
+  }
+
+  body {
+    background-color: var(--apple-bg);
+    color: var(--apple-text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* Карточка в стиле macOS / iPadOS */
+.apple-card {
+  background-color: var(--apple-card);
+  border: 1px solid var(--apple-border);
+  box-shadow: var(--apple-shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Выделенные KPI-виджеты в стиле Apple Health / macOS Settings */
+.apple-kpi-card {
+  background-color: var(--apple-kpi-bg);
+  border: 1px solid var(--apple-border-strong);
+  box-shadow: var(--apple-shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Цветная иконка-squircle в стиле macOS System Settings без внешнего свечения */
+.apple-squircle-icon {
+  border-radius: 11px;
+  color: #ffffff;
+}
+
+/* Внутренняя подложка (Grouped Inset Well) */
+.apple-well {
+  background-color: var(--apple-well);
+  border: 1px solid var(--apple-border);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Холст для графика */
+.apple-canvas {
+  background-color: var(--apple-canvas);
+  border: 1px solid var(--apple-border);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Фирменный Segmented Control в стиле Apple */
+.apple-segmented {
+  background-color: var(--apple-segmented-bg);
+  padding: 3px;
+  border-radius: 11px;
+}
+
+.apple-segmented-item {
+  border-radius: 8.5px;
+  color: var(--apple-text-secondary);
+  font-weight: 500;
+  transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.apple-segmented-item:hover:not(.apple-segmented-item-active) {
+  color: var(--apple-text);
+}
+
+.apple-segmented-item-active {
+  background-color: var(--apple-segmented-active);
+  color: var(--apple-text);
+  box-shadow: var(--apple-segmented-shadow);
+}
+
+/* Поля ввода в стиле Apple */
+.apple-input {
+  background-color: var(--apple-card-solid);
+  border: 1px solid var(--apple-border-strong);
+  color: var(--apple-text);
+  border-radius: 10px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.apple-input:focus {
+  border-color: var(--apple-blue);
+  box-shadow: 0 0 0 3px var(--apple-blue-tint);
+  outline: none;
+}
+
+/* Главная кнопка Apple System Blue */
+.apple-btn-primary {
+  background-color: var(--apple-blue);
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 113, 227, 0.22);
+  transition: background-color 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+}
+
+.apple-btn-primary:hover:not(:disabled) {
+  background-color: var(--apple-blue-hover);
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.3);
+}
+
+.apple-btn-primary:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+/* Вторичная системная кнопка Apple */
+.apple-btn-secondary {
+  background-color: var(--apple-well);
+  color: var(--apple-text);
+  border: 1px solid var(--apple-border);
+  font-weight: 500;
+  border-radius: 12px;
+  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+}
+
+.apple-btn-secondary:hover:not(:disabled) {
+  background-color: var(--apple-well-hover);
+  border-color: var(--apple-border-strong);
+}
+
+.apple-btn-secondary:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+/* Ползунок в стиле iOS / macOS */
+input[type="range"].apple-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--apple-segmented-bg);
+}
+
+input[type="range"].apple-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22), 0 0 1px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].apple-range::-webkit-slider-thumb:hover {
+  transform: scale(1.06);
+}
+
+/* Аккуратный горизонтальный и вертикальный скроллбар в стиле macOS */
+.apple-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--apple-border-strong) transparent;
+}
+
+.apple-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.apple-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.apple-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--apple-border-strong);
+  border-radius: 999px;
+}
